@@ -1,0 +1,16 @@
+<div class="ui inverted secondary pointing menu">
+  <%= link_to 'Home', root_path, class: "item" %>
+  <%= link_to 'ChatRoom', root_path, class: "item" %>
+  <%= link_to 'Messages', root_path, class: "item" %>
+  <div class="right menu">
+    <div class="ui dropdown item">
+      Account<i class="dropdown icon"></i>
+      <div class="menu">
+        <%= link_to 'Signup', root_path , class: "item", remote: true %>
+        <%= link_to 'Login', root_path, class: "item", remote: true %>
+      </div>
+    </div>
+  <div class="item">
+      <div class="ui primary button">Log In</div>
+  </div>
+</div>
