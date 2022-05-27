@@ -9,3 +9,19 @@ body {
   flex: 1 0 auto;
   background-color: lightgray;
 }
+
+.ui.small.feed {
+  text-align: right;
+}
+
+.ui.feed > .event > .content {
+  text-align: right;
+}
+
+.ui.grid {
+  margin-top: 20px;
+}
+
+.card {
+  height: 500px;
+}
