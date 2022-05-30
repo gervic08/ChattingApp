@@ -25,42 +25,23 @@
     <div class="ui fluid raised card">
       <div class="content">
         <div class="ui small feed">
-          <div class="event">
-            <div class="content">
-              <div class="summary">
-                <em>Elliot Fu</em>
+          <% @messages.each do |message| %>
+            <div class="event">
+              <div class="content">
+                <div class="summary">
+                  <em><%= message.user.username %></em> <%= message.words %>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="event">
-            <div class="content">
-              <div class="summary">
-                <em>Stevie Feliciano</em> 
-              </div>
-            </div>
-          </div>
-          <div class="event">
-            <div class="content">
-              <div class="summary">
-                <em>Helen Troy</em> 
-              </div>
-            </div>
-          </div>
-          <div class="event">
-            <div class="content">
-              <div class="summary">
-                <em>Christian Rocha</em> send a message
-              </div>
-            </div>
-          </div>
-        </div>
+          <% end %>  
+        </div>  
       </div>
       <div class="extra content">
         
           <div class="ui fluid left icon input">
             <input type="text" placeholder="Write a message...">
             <div class="ui fluid icon">
-              <i class="rounded bordered fluid inverted blue pencil large icon rounded"></i>
+              <i class="bordered fluid inverted blue pencil large icon"></i>
             </div>  
           </div>
       </div>  
