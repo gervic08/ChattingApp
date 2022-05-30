@@ -11,14 +11,14 @@ class SessionsController < ApplicationController
       flash[:notice] = "You´re successfully logged in."
       redirect_to root_path
     else
-      flash[:alert] = "Invalid credentials. Please try again."
+      flash.now[:alert] = "Invalid credentials. Please try again."
       render 'new'
     end 
   end
-end
 
-def destroy
-  session[:user_id] = nil
-  flash[:alert] = "Succesfully logged out"
-  redirect_to root_path
+  def destroy
+    session[:user_id] = nil
+    flash[:alert] = "Succesfully logged out"
+    redirect_to root_path
+  end
 end
