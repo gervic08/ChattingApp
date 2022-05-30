@@ -29,13 +29,12 @@
         </div>  
       </div>
       <div class="extra content">
-        
-          <div class="ui fluid left icon input">
-            <input type="text" placeholder="Write a message...">
-            <div class="ui fluid icon">
-              <i class="bordered fluid inverted blue pencil large icon"></i>
-            </div>  
-          </div>
+        <%= form_for(@message, html: { class:"ui reply form", role: "form" }, url: message_path) do |f|%>
+          <div class="field">
+            <div class="ui fluid left icon input">
+          <%= f.text_field :words %>
+          <%= f.button '<i class="bordered fluid inverted blue pencil large icon"></i>'.html_safe  %>
+        <% end %>
       </div>  
     </div>    
   </div>
