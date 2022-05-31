@@ -34,3 +34,14 @@ i.icon {
   border-radius: 5px;
   margin-left: 0.08em;
 }
+
+#messages {
+  height: 15em;
+  overflow: auto;
+}
+
+.input {
+  button {
+    display: none;
+  }
+}
