@@ -2,6 +2,7 @@
 
 class SessionsController < ApplicationController
   before_action :logged_in_redirect, only: %i[new create]
+  after_action :messages_blank, only: %i[create]
 
   def new
   end
@@ -31,5 +32,9 @@ class SessionsController < ApplicationController
       flash[:error] = "You´re already logged in"
       redirect_to root_path
     end
+  end
+
+  def messages_blank
+    current_user.messages = [] if current_user && current_user.messages
   end
 end
