@@ -1,0 +1,27 @@
+<div class="ui middle aligned two column centered grid">
+  <div class="column">
+    <%= form_with(model: @user, class: "ui form", local: true) do |form| %>
+      <h4 class="ui center aligned top attached header">Please enter your credentials</h4>
+        <div id="form-segment" class="ui center aligned attached segment">
+          <div class="field">
+            <%= form.label :username %>
+            <%= form.text_field :username, placeholder: "Choose your username. Use between 3 to 25 characters." %>  
+          </div>
+          <div class="field">
+            <%=form.label :password %>
+            <%= form.password_field :password, placeholder: "Choose a password."  %>
+          </div>
+          <% unless logged_in? %>
+            <div class="field">
+              <div class="ui checkbox">
+                <input type="checkbox" tabindex="0" class="hidden">
+                <label>I agree to the Terms and Conditions</label>
+              </div>
+            </div>
+          <% end %>  
+          <%= form.submit(@user.new_record? ? "Sign Up" : "Update User", class: "ui button") %>
+        </div>
+      </div>    
+    <% end %>
+  </div>     
+</div>   
