@@ -1,0 +1,22 @@
+<%= render 'layouts/header' %>
+
+<div class="ui centered card">
+  <div class="image">
+    <%= image_tag("favicon.png") %>
+  </div>
+  <div class="content">
+    <a class="header"><%= @user.username %></a>
+    <div class="meta">
+      <span class="date"><%= @user.created_at.to_date %></span>
+    </div>
+    <div class="description">
+      <%= @user.username %></a> is an art director living in New York.
+    </div>
+  </div>
+  <div class="extra content">
+    <a>
+      <i class="user icon"></i>
+      22 Friends
+    </a>
+  </div>
+</div>

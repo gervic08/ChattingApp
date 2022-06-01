@@ -39,5 +39,6 @@ $(document).on('turbolinks:load', function() {
   });
   submitMessage();
   scrollBottom();
+  $('.ui.checkbox').checkbox();
 })
 
