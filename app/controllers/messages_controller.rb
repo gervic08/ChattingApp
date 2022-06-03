@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class MessagesController < ApplicationController
+  before_action :conected
+  
   def create
     message = current_user.messages.build(message_params)
     if message.save
