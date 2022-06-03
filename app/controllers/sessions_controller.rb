@@ -11,7 +11,6 @@ class SessionsController < ApplicationController
     user = User.find_by(username: params[:session][:username]) 
     if user && user.authenticate(params[:session][:password])
       session[:user_id] = user.id
-      session[:user_id][:starting] = Process.clock_gettime(Process::CLOCK_MONOTONIC)
       flash[:success] = "You´re successfully logged in."
       redirect_to root_path
     else
@@ -21,7 +20,6 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session[:user_id][:ending] = Process.clock_gettime(Process::CLOCK_MONOTONIC)
     session[:user_id] = nil
     flash[:error] = "Succesfully logged out"
     redirect_to root_path

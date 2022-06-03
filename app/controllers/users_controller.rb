@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: %i[show update edit destroy]
   before_action :require_user, only: %i[update edit]
   before_action :require_same_user, only: %i[update edit destroy]
-  
+   
   def show
     @user
   end

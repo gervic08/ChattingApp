@@ -10,7 +10,7 @@
       <span class="date"><%= @user.created_at.to_date %></span>
     </div>
     <div class="description">
-      Last seen: <%= conected %>
+      Last seen: <%= time_ago_in_words(@user.last_action)%> ago
     </div>
   </div>
   <div class="extra content">
