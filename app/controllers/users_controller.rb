@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
-  before_action :set_user, only: %i[show update edit destroy create]
+  before_action :set_user, only: %i[show update edit destroy]
   before_action :require_user, only: %i[update edit]
   before_action :require_same_user, only: %i[update edit destroy]
   
@@ -18,9 +18,10 @@ class UsersController < ApplicationController
   end
 
   def create
-    redirect_to edit_user_path if logged_in?
+    redirect_to edit_user_path(current_user) if logged_in?
     @user = User.create(user_params)
     if @user.save
+      session[:user_id] = @user.id
       flash[:success] = "User successfully created"
       redirect_to @user
     else
@@ -32,8 +33,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.update(user_params)
-    if @user.save
+    if @user.update(user_params)
       flash[:success] = "User successfully updated"
       redirect_to @user
     else
@@ -43,6 +43,7 @@ class UsersController < ApplicationController
 
   def destroy 
     if @user.destroy
+      session[:user_id] = nil
       flash.now[:success] = "User successfully deleted"
       redirect_to root_path
     end
@@ -59,6 +60,9 @@ class UsersController < ApplicationController
   end
 
   def require_same_user
-    @user.id == current_user
+    unless @user == current_user
+      flash[:alert] = "Your user is not allowed to do that"
+      redirect_to user_path
+    end
   end
 end

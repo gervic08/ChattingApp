@@ -19,7 +19,10 @@
               </div>
             </div>
           <% end %>  
-          <%= form.submit(@user.new_record? ? "Sign Up" : "Update User", class: "ui button") %>
+          <%= form.submit(@user.new_record? ? "Sign Up" : "Update User", class: "ui button") %><br><br>
+          <% if logged_in? && current_user == @user %>
+            <%= link_to 'Delete account', @user, method: :delete, data: { confirm: 'Are you sure?' }, class: "ui inverted red button" %>
+          <% end %>
         </div>
       </div>    
     <% end %>
