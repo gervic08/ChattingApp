@@ -7,16 +7,24 @@
   <div class="content">
     <a class="header"><%= @user.username %></a>
     <div class="meta">
-      <span class="date"><%= @user.created_at.to_date %></span>
+      <span class="date">Member since <%= @user.created_at.to_date.strftime("%d/%m/%Y") %></span>
     </div>
     <div class="description">
-      Last seen: <%= time_ago_in_words(@user.last_action)%> ago
+      <% unless @user.last_action.nil? %>
+        Last seen: <%= time_ago_in_words(@user.last_action) %> ago
+      <% end %>  
     </div>
   </div>
+  <div class="ui two column centered grid">
+    <div class="column">
+      <% if logged_in? %>
+        <% if @user == current_user %>
+          <%= link_to "Edit profile", edit_user_path(current_user), class: "compact ui inverted blue button" %>
+        <% end %> 
+      <% end %> 
+    </div>       
+  </div>      
   <div class="extra content">
-    <a>
-      <i class="user icon"></i>
-      22 Friends
-    </a>
+    <%= link_to "#{User.all.count} Friends", users_path, class: "user icon" %>
   </div>
 </div>

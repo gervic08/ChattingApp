@@ -4,7 +4,11 @@ class UsersController < ApplicationController
   before_action :set_user, only: %i[show update edit destroy]
   before_action :require_user, only: %i[update edit]
   before_action :require_same_user, only: %i[update edit destroy]
-   
+  
+  def index
+    @users = User.all
+  end
+
   def show
     @user
   end
@@ -22,6 +26,7 @@ class UsersController < ApplicationController
     @user = User.create(user_params)
     if @user.save
       session[:user_id] = @user.id
+      @user.last_action = @user.created_at
       flash[:success] = "User successfully created"
       redirect_to @user
     else

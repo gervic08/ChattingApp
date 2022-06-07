@@ -1,0 +1,20 @@
+<%= render 'layouts/header' %>
+
+<% @users.each do |user| %>
+  <div class="ui centered card">
+    <div class="image">
+      <%= image_tag("favicon.png") %>
+    </div>
+    <div class="content">
+      <%= link_to "#{user.username}", user_path(user), class: "user icon" %>
+      <div class="meta">
+        <span class="date">Member since <%= user.created_at.to_date.strftime("%d/%m/%Y") %></span>
+      </div>
+      <div class="description">
+        <% unless user.last_action.nil? %>
+          Last seen: <%= time_ago_in_words(user.last_action) %> ago
+        <% end %>  
+      </div>
+    </div>
+  </div>  
+<% end %>
