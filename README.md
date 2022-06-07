@@ -8,7 +8,7 @@ The project was upload to GitHub usng one branch per feature to clarify the proc
 
 Users Authentication system created by scratch, using Bycrypt gem to encrypt passwords.
 
-Frontend builded with HTML (Embedded Ruby code), CSS and Semantic UI.
+Frontend builded with HTML (Embedded Ruby code), CSS, JavaScript and Semantic UI.
 
 Action Cable used for stream messages from users.
 
