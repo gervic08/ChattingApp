@@ -1,24 +1,15 @@
-# README
+<h1>ChattingApp</h1>
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A Chat App builded in Rails 5 from scratch.
 
-Things you may want to cover:
+Sqlite3 used for development and test Databases, Postgresql for production, thorugh respective gems, Sqlite3 and PG.
 
-* Ruby version
+The project was upload to GitHub usng one branch per feature to clarify the process and make the repo cleaner.
 
-* System dependencies
+Users Authentication system created by scratch, using Bycrypt gem to encrypt passwords.
 
-* Configuration
+Frontend builded with HTML (Embedded Ruby code), CSS and Semantic UI.
 
-* Database creation
+Action Cable used for stream messages from users.
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Deployed in heroku. Link: https://gervic-chattingapp.herokuapp.com/
